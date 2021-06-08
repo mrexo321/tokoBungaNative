@@ -1,0 +1,269 @@
+<?php 
+
+session_start();
+
+require 'fungsi.php';
+
+$blog = query("SELECT * FROM blog");
+
+//if(!isset($_SESSION["user"])){
+  //header("location:login.php");
+  //exit;
+//}
+
+//$query = "SELECT * FROM blog";
+//$blog = mysqli_query($koneksi,$query);
+//$resultblog = mysqli_fetch_assoc($blog);
+//var_dump($blog);
+
+
+?>
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Script JS -->
+   
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Link css -->
+    <link rel="stylesheet" href="../css/produk.css">
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/50981b477c.js" crossorigin="anonymous"></script>
+
+    <!-- google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+
+    <title> Blog</title>
+  </head>
+  <body>
+    
+  <nav class="">
+  <div class="logo">
+    <ul>
+      <li><a href="index.php ">Flower</a></li>
+    </ul>
+  </div> 
+
+    <ul class="main">
+      <li><a href="produk.php">Produk</a></li>    
+      <li><a href="contact.php">Contact</a></li>    
+      <li><a href="blog.php">Blog</a></li>
+      <div class="tutupmenu"><i class="fas fa-times"></i></div>
+       
+    </ul>
+
+    <ul class="profile">
+    <div class="bukamenu"><i class="fas fa-bars"></i></div> 
+      
+      <li><a href="keranjang.php"><i class="fas fa-shopping-basket"></i></a></li>
+      <?php if(isset($_SESSION["user"])) :  ?>
+      <li><a href="logout.php" ><i class="fas fa-sign-out-alt"></i></a></li>
+      <?php else: ?>
+        <li><a href="login.php"><i class="fas fa-user"></i></a></li>
+      <?php endif; ?>
+    </ul>
+
+
+  </nav>
+
+
+
+    <div class="container content">
+            <section class="blog">
+
+            
+
+                <div class="kategoritextblog text-center py-5">
+                    <h1 class="text-decoration-underline  ">Blog</h1>
+                </div>
+               
+                <div class="grid-list row m-auto text-center">
+
+                    <?php foreach($blog as $ib) :?>
+                    <div class="gambar col-md-4 py-4">
+                    <img  src="../img/<?= $ib ["gambarblog"];?>" alt="bungablog" class="img-fluid">
+                        <p class="h4 text-center"><?= $ib["namablog"]; ?></p>
+                        <p class="h6"><?= $ib["isiblogpen"]; ?></p>
+                        <p class="h6">
+                           
+                        </p>
+                        <a href="viewblog.php?id=<?= $ib["idblog"]; ?>" class="btn btn-outline-secondary">Selengkapnya</a>
+                    </div>
+                    <?php endforeach; ?>
+
+                  
+                   
+
+                   
+
+                </div>
+                
+
+                </section>
+
+                <section class="bottombanner">
+                <div class="container">
+                    <div class="bannerhero">
+                        <p>Blog</p>
+                    </div>
+                    </div>
+                </section>
+           
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footeritem">
+
+      <div class="footercol">
+        <p class="h4 ">Link</p>
+        <ul class="link">
+          <li><a href="">Tentang Kami</a></li>
+          <li><a href="">FAQ</a></li>
+          <li><a href="">Terms & conditions</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footercol">
+        <p class="h4">Link</p>
+        <ul class="link">
+          <li><a href="">Tentang Kami</a></li>
+          <li><a href="">FAQ</a></li>
+          <li><a href="">Terms & conditions</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+      </div>
+
+      
+
+      <div class="footercol">
+        <p class="h4">Sosial Media</p>
+        <ul class="link">
+          <li><a href="https://www.facebook.com/ichan.jelek.7">Facebook</a></li>
+          <li><a href="https://www.instagram.com/pa_thetic_/">Instagram</a></li>
+          <li><a href="https://twitter.com/Maulana2134">Twitter</a></li>
+          <li><a href="https://github.com/mrexo321">Github</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+      <div class="whatsapp fixed-bottom ms-auto end-0">
+          <a href="https://wa.me/628888730173"><img src="../img/waicon.png" alt="Logo Whatsapp" style="width:4rem;"></a>
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <script src="../js/script.js"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!--
+<section class="blog">
+
+    <div class="kategoritext text-center py-5">
+        <h1>Blog</h1>
+    </div>
+    
+    <div class="row m-auto text-center">
+
+        <div class="gambar col-md-4">
+            <a href=""><img src="img/bouquet.jpg" alt="" class="img-fluid"></a>
+            <p class="h4 text-center">Bouquet</p>
+            <p class="h6">Tanggal</p>
+            <p class="h6">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil placeat repellendus consequuntur commodi est, ab eligendi quis excepturi autem natus sunt, expedita ipsam laudantium libero accusantium similique itaque obcaecati ad? Ducimus ad ratione ipsam repellendus eius maxime aliquam, dicta nihil labore veritatis, incidunt aut nisi doloremque vero voluptas temporibus corporis?
+             </p>
+             <a href="#" class="text-decoration-none">Selengkapnya</a>
+        </div>
+
+        <div class="gambar col-md-4">
+            <a href=""><img src="img/bouquet.jpg" alt="" class="img-fluid"></a>
+            <p class="h4 text-center">Bouquet</p>
+            <p class="h6">Tanggal</p>
+            <p class="h6">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil placeat repellendus consequuntur commodi est, ab eligendi quis excepturi autem natus sunt, expedita ipsam laudantium libero accusantium similique itaque obcaecati ad? Ducimus ad ratione ipsam repellendus eius maxime aliquam, dicta nihil labore veritatis, incidunt aut nisi doloremque vero voluptas temporibus corporis?
+             </p>
+             <a href="#" class="text-decoration-none">Selengkapnya</a>
+        </div>
+
+        <div class="gambar col-md-4">
+             <a href=""><img src="img/bouquet.jpg" alt="" class="img-fluid"></a>
+             <p class="h4 text-center">Bouquet</p>
+             <p class="h6">Tanggal</p>
+             <p class="h6">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil placeat repellendus consequuntur commodi est, ab eligendi quis excepturi autem natus sunt, expedita ipsam laudantium libero accusantium similique itaque obcaecati ad? Ducimus ad ratione ipsam repellendus eius maxime aliquam, dicta nihil labore veritatis, incidunt aut nisi doloremque vero voluptas temporibus corporis?
+             </p>
+             <a href="#" class="text-decoration-none">Selengkapnya</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="bottombanner">
+  <div class="container">
+        <div class="bannerhero">
+            <p>Blog</p>
+        </div>
+        </div>
+</section>
+-->
+
+
+
+

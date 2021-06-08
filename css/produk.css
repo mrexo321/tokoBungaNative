@@ -1,0 +1,328 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fdfaf6;
+  height: 100vh;
+}
+
+.content {
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+
+  width: 100%;
+  background-color: white;
+  justify-content: space-around;
+  overflow: hidden;
+  height: 5rem;
+}
+nav ul {
+  margin: auto;
+}
+
+nav .main {
+  display: flex;
+  list-style: none;
+}
+
+nav .main li a {
+  display: inline-block;
+  text-transform: uppercase;
+  color: #3d4246;
+  font-size: 1.2rem;
+  padding: 30px;
+  text-decoration: none;
+}
+
+nav .main li a:hover {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+nav .bukamenu {
+  margin: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+nav .main .tutupmenu,
+.icon i {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+nav .logo a {
+  margin: 20px;
+  display: inline-block;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+nav .logo ul li {
+  list-style: none;
+}
+
+nav .logo ul li a {
+  text-decoration: none;
+  font-size: 30px;
+  display: inline-block;
+  color: #3d4246;
+}
+
+nav .profile {
+  display: inline-flex;
+  margin: 5px;
+  list-style: none;
+}
+
+nav .profile li a {
+  display: inline-block;
+  color: #3d4246;
+  margin: 20px;
+  font-size: 1.5em;
+}
+
+@media (max-width: 768px) {
+  nav .main {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: top 1s ease;
+    background: #faf1e6;
+    height: 100vh;
+    z-index: 10;
+  }
+  nav .main .tutupmenu {
+    display: block;
+    top: 20px;
+    position: absolute;
+  }
+  nav .bukamenu {
+    display: block;
+  }
+
+  nav .main li a:hover {
+    font-size: 1.5em;
+  }
+}
+
+.content {
+  min-height: calc(100vh - 500px);
+}
+
+/* buat isi */
+
+.hero {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  background: url(../img/hero5.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.containerhero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  text-align: center;
+  color: #faf1e6;
+  font-weight: 700;
+}
+
+.containerhero h1 {
+  letter-spacing: 0.2em;
+  padding: 20px;
+  margin: 30px;
+  border: 10px solid white;
+  font-size: 60px;
+}
+
+.tombolhero {
+  text-decoration: none;
+  padding: 10px 10px;
+  background: #f4cca4;
+  border-radius: 8px;
+  color: #3d4246;
+  font-size: 20px;
+}
+
+.tombolhero:hover {
+  color: black;
+  opacity: 0.7;
+}
+
+.produk h1 {
+  text-decoration: underline;
+  font-family: pattaya;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.searchbox input {
+  border: 2px solid black;
+  font-size: 20px;
+  outline: none;
+}
+
+/*.grid-list {
+  grid-template-columns: repeat(2, 1fr);
+} */
+
+@media screen and (max-width: 576px) {
+  .grid-list {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+  }
+}
+
+.modal-wrapper {
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.basemodal {
+  display: flex;
+  width: fit-content;
+  padding: 4em;
+  background: #ffffff;
+}
+
+.modalisi {
+  margin: 3rem;
+}
+
+.modal-wrapper.tampil {
+  display: block;
+}
+
+.grid-koleksi ul {
+  list-style: none;
+}
+
+.gambar img {
+  background: none;
+}
+.search {
+  margin: 0 0 0 20px;
+  outline: none;
+  border: solid 1px black;
+  width: 250px;
+  padding: 10px;
+}
+.tombolsearch {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.page button {
+  border: solid 1px black;
+  background: none;
+  padding: 0 10px;
+  display: block;
+}
+.page ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.bottombanner {
+  position: relative;
+  display: block;
+  height: 200px;
+  overflow: hidden;
+  background: url(../img/hero.jpg) no-repeat center;
+  background-position: center;
+  margin: 20px;
+  background-size: auto;
+  text-align: center;
+}
+
+.bannerhero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  text-align: center;
+  color: #3d4246;
+  font-weight: 700;
+}
+
+.bannerhero p {
+  letter-spacing: 0.2em;
+  padding: 20px;
+  display: block;
+  margin: 30px;
+  border: 10px solid #3d4246;
+  font-size: 30px;
+}
+/* buat dibawah konten isi*/
+
+.footer {
+  background-color: #f5f5f5;
+  padding: 10px;
+  height: 50%;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #3d4246;
+  line-height: 2;
+}
+
+.footer ul li a:hover {
+  text-decoration: underline;
+}
+
+.footeritem {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footercol {
+  width: 33%;
+}
+
+.footercol p {
+  color: #3d4246;
+  margin: 20px 30px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .footercol {
+    width: 50%;
+  }
+}
